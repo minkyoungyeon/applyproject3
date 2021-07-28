@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <div class="panel panel-default registration">
+        <div class="panel-heading">
+            로그인
+        </div>
+        <div class="panel-body">
+            <form action="." method="post">
+                {% csrf_token %}
+                {{ error }}
+                <br>
+                <input name = "username" type='text' size ='15' value="" placeholder="아이디" style = "margin-bottom : 10px;">
+                <br>
+                <input name = "password" type = "password" size = "15" value = "" placeholder="비밀번호" style = "margin-bottom : 10px;">
+                <div class="form-actions">
+                    <button class="btn btn-primary btn-large" type="submit">로그인</button>
+                    <br>
+                    <br>
+                    <p>계정이 없으신가요? <a href = "{% url 'signup' %}">회원가입</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

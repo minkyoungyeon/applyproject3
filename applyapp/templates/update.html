@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Blog Site</title>{% endblock title %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<h1>수정하기</h3>
+<br>
+<form action="{% url 'update_article' %}">
+    <input name = 'post_id' type = 'hidden' value = '{{ article.id }}' >
+    <input name = "title" type='text' value="{{ article.title }}" required = "required" placeholder = "제목을 입력하세요"style = "margin-bottom : 10px;  width: 600px;">
+    <br>
+    <textarea name = "content" placeholder = "멋쟁이사자처럼 지원 동기와 포부를 입력해주세요. "style = "margin-bottom : 10px; width: 600px; height: 500px;">{{article.content}}</textarea>
+    
+    <div class="form-actions">
+        <button class="btn btn-primary btn-large" type="submit">수정완료</button>
+    </div>
+</form>
+{% else %}
+<p>로그인 해주세용~</p>
+{% endif %}
+{% endblock content %}

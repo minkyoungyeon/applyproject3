@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <div class="panel panel-default registration">
+        <div class="panel-heading">
+            회원가입
+        </div>
+        <div class="panel-body">
+            <form action="{%url 'signup'%}" method="POST">
+                {% csrf_token %}
+                <table style="margin-left: auto; margin-right: auto">
+                    <tr>
+                        <td style ="text-align : left;">
+                            아이디
+                        </td>
+                        <td>
+                            <input name = "username" type='text' size ='15' value="" placeholder="아이디" style = "margin-bottom : 10px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style ="text-align : left;">
+                            비밀번호
+                        </td>
+                        <td>
+                            <input name = "password" type = "password" size = "15" value = "" placeholder="비밀번호" style = "margin-bottom : 10px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            비밀번호 확인
+                        </td>
+                        <td>
+                            <input name = "re_password" type = "password" size = "15" value = "" placeholder="비밀번호확인" style = "margin-bottom : 10px;">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div class="form-actions">
+                    <button class="btn btn-primary btn-large" type="submit">가입하기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
